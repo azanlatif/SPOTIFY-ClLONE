@@ -161,7 +161,7 @@ scale: 1.03;
 .playbar{
   position: absolute;
   bottom: 0;
-  background-color: rgb(126, 214, 126);
+  background-color: rgb(255, 255, 255);
   width: 100%;
   padding: 12px;
 }
@@ -170,4 +170,14 @@ scale: 1.03;
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+songList ul{
+
+  padding: 0 10px;
+}
+
+
+songList ul li{
+  list-style: none;
 }
