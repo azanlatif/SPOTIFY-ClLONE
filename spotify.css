@@ -48,12 +48,14 @@ body {
 }
 
 .footer {
-  display: flex;
+  display: inline-flex;
+  width: 20%;
   flex-wrap: wrap;
   font-size: 10px;
   position: absolute;
   bottom: 0;
   padding: 10px;
+  
 }
 
 .footer a {
@@ -154,11 +156,10 @@ body {
 
 .loginbtn:hover {
   font-weight: bold;
-scale: 1.03;
+  scale: 1.03;
 }
 
-
-.playbar{
+.playbar {
   position: absolute;
   bottom: 0;
   background-color: rgb(255, 255, 255);
@@ -166,18 +167,16 @@ scale: 1.03;
   padding: 12px;
 }
 
-.songbuttons{
+.songbuttons {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-songList ul{
-
+.songList ul {
   padding: 0 10px;
 }
 
-
-songList ul li{
-  list-style: none;
+.songList ul li {
+  list-style-type: decimal;
 }

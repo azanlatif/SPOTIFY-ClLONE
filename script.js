@@ -1,38 +1,48 @@
-console.log('Lets Write Javascript');
+console.log('Let\'s Write Javascript');
 
 async function getSongs() {
-    let a = await fetch("http://127.0.0.1:5500/Songs/")
+    let a = await fetch("http://127.0.0.1:5500/Songs/");
     let response = await a.text();
     console.log(response);
-    let div = document.createElement("div")
+
+    let div = document.createElement("div");
     div.innerHTML = response;
-    let as = div.getElementsByTagName("a")
-    let songs = []
+
+    let as = div.getElementsByTagName("a");
+    let songs = [];
 
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith(".m4a")) {
-            songs.push(element.href)
+            songs.push(element.href.replaceAll());
         }
-
     }
-    return songs
+
+    return songs;
 }
 
 async function main() {
-    //Get the List of all Songs
+    // Get the list of all songs
     let songs = await getSongs();
-    console.log(songs)
+    console.log(songs);
 
-    //play the first song
-    var audio = new Audio(songs[2]);
-    audio.play();
+    let songUL = document.querySelector(".songList ul");
 
-    audio.addEventListener("loadeddata", () => {
-        let duration = audio.duration;
-        console.log(audio.duration, audio.currentTime);
-        
-        // The duration variable now holds the duration (in seconds) of the audio clip
-      });
+    for (const song of songs) {
+        songUL.innerHTML += `<li>${song}</li>`; // ✅ Corrected string interpolation
+    }
+
+    // Play the third song (if available)
+    if (songs.length >= 3) {
+        let audio = new Audio(songs[2]);
+        audio.play();
+
+        audio.addEventListener("loadeddata", () => {
+            console.log("Duration:", audio.duration, "Current Time:", audio.currentTime);
+        });
+    } else {
+        console.warn("Not enough songs to play the third one.");
+    }
 }
-main()
+
+main();
