@@ -41,23 +41,8 @@ async function main() {
                             </div>
                         </li>
         
-        
-        
-        
-        </li>`; // ✅ Corrected string interpolation
+        </li>`; 
     }
 
-    // Play the third song (if available)
-    if (songs.length >= 3) {
-        let audio = new Audio(songs[2]);
-        audio.play();
-
-        audio.addEventListener("loadeddata", () => {
-            console.log("Duration:", audio.duration, "Current Time:", audio.currentTime);
-        });
-    } else {
-        console.warn("Not enough songs to play the third one.");
-    }
 }
-
 main();
