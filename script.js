@@ -20,6 +20,7 @@ async function getSongs() {
             songs.push(songName);
         }
     }
+    
 
     return songs;
 }
@@ -27,9 +28,9 @@ async function getSongs() {
 const playMusic = (track) => {
     currentSong.src = "/Songs/" + track; 
     currentSong.play();
-    let playButton = document.getElementById("play"); // Correct the variable reference
+    let playButton = document.getElementById("play");
     playButton.src = "img/pause.svg"; 
-    document.querySelector(".songInfo").innerHTML = track;  // Correct class to match HTML
+    document.querySelector(".songInfo").innerHTML = track;  
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00";
 };
 
@@ -75,5 +76,4 @@ async function main() {
         }
     });
 }
-
 main();
